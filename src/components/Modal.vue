@@ -9,7 +9,7 @@
     >
       <div
         v-if="visibility.overlay"
-        class="vm--overlay"
+        :class="'vm--overlay ' + overlayClasses? overlayClasses:''"
         :data-modal="name"
         :aria-expanded="visibility.overlay.toString()"
         @click.self.stop="onOverlayClick"
@@ -125,6 +125,10 @@ export default {
     overlayTransition: {
       type: String,
       default: 'vm-transition--overlay'
+    },
+    overlayClasses: {
+      type: String,
+      default: ''
     },
     transition: {
       type: String,
