@@ -9,7 +9,7 @@
     >
       <div
         v-if="visibility.overlay"
-        :class="'vm--overlay ' + overlayClasses? overlayClasses:''"
+        :class="overlayClass"
         :data-modal="name"
         :aria-expanded="visibility.overlay.toString()"
         @click.self.stop="onOverlayClick"
@@ -404,6 +404,10 @@ export default {
      */
     modalClass() {
       return ['vm--modal', this.classes]
+    },
+
+    overlayClass() {
+      return ['vm--overlay', this.overlayClasses];
     },
 
     stylesProp() {
